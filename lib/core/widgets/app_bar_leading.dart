@@ -44,12 +44,19 @@ class _AppBarLeadingState extends State<AppBarLeading>
       child: Center(
         child: ClipOval(
           child: Material(
-            color: AppColors.primary,
+            borderOnForeground: true,
+            shape: CircleBorder(
+              side: BorderSide(color: AppColors.grey.withOpacity(.2)),
+            ),
+            color: AppColors.white,
             child: InkWell(
               onTap: () => Navigator.of(context).pop(),
               child: const Padding(
-                padding: EdgeInsets.all(12),
-                child: Icon(Icons.arrow_back),
+                padding: EdgeInsets.all(8),
+                child: Icon(
+                  Icons.arrow_back,
+                  color: AppColors.black,
+                ),
               ),
             ),
           ),

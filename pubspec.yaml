@@ -15,11 +15,12 @@ dependencies:
   dio: ^4.0.6
   google_fonts: ^6.1.0
   meta: ^1.9.1
-  freezed: ^2.4.2
   freezed_annotation: ^2.4.1
   flutter_riverpod: ^2.4.0
   riverpod_annotation: ^2.1.5
   json_annotation: ^4.8.1
+  flex_color_scheme: ^7.3.1
+  intl: ^0.18.1
 
 dependency_overrides:
   analyzer: ^5.0.0
@@ -35,6 +36,9 @@ dev_dependencies:
   very_good_analysis: ^5.1.0
   http_mock_adapter: ^0.3.3
   mocktail: ^0.3.0
+  freezed: ^2.4.2
+  json_serializable: ^6.7.1
+
 
 
 flutter:

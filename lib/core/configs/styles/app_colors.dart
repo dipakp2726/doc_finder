@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 /// and helper methods
 class AppColors {
   /// App primary color
-  static const Color primary = Colors.blue;
+  static const Color primary = Colors.blueAccent;
 
   /// App white color
   static const Color white = Color(0xffffffff);
+  static const Color black = Colors.black;
+
+  /// The grey color.
+  static const Color grey = Color(0xFF7F818B);
 
   /// Returns a shade of a [Color] from a double value
   ///
