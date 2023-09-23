@@ -1,3 +1,4 @@
+import 'package:docfinder/core/core.dart';
 import 'package:docfinder/features/doctor/view/doctor_list_page.dart';
 import 'package:docfinder/features/doctor/view/my_bookings_page.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class _HomepageState extends State<Homepage> {
       body: pages[_index],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _index,
+        selectedItemColor: AppColors.primary,
         onTap: (value) {
           setState(() => _index = value);
         },
