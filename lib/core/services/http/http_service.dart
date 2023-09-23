@@ -7,10 +7,9 @@ abstract class HttpService {
   Map<String, String> get headers;
 
   /// Http get request
-  Future<Map<String, dynamic>> get(
+  Future<dynamic> get(
     String endpoint, {
     Map<String, dynamic>? queryParameters,
-    bool forceRefresh = false,
   });
 
   /// Http post request

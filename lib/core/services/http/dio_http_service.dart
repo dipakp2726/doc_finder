@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:docfinder/core/configs/configs.dart';
+import 'package:docfinder/core/configs/app_configs.dart';
 import 'package:docfinder/core/exceptions/http_exception.dart';
 import 'package:docfinder/core/services/http/http_service.dart';
 
@@ -29,17 +29,17 @@ class DioHttpService implements HttpService {
   @override
   Map<String, String> headers = {
     'accept': 'application/json',
-    'content-type': 'application/json'
+    'content-type': 'application/json',
   };
 
   @override
-  Future<Map<String, dynamic>> get(
+  Future<dynamic> get(
     String endpoint, {
     Map<String, dynamic>? queryParameters,
     bool forceRefresh = false,
     String? customBaseUrl,
   }) async {
-    final Response<dynamic> response = await dio.get<Map<String, dynamic>>(
+    final response = await dio.get<dynamic>(
       endpoint,
       queryParameters: queryParameters,
     );
@@ -51,7 +51,7 @@ class DioHttpService implements HttpService {
       );
     }
 
-    return response.data as Map<String, dynamic>;
+    return response.data;
   }
 
   @override
