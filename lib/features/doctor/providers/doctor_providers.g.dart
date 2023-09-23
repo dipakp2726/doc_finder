@@ -24,6 +24,7 @@ final doctorListProvider = FutureProvider<List<Doctor>>.internal(
 );
 
 typedef DoctorListRef = FutureProviderRef<List<Doctor>>;
+
 String _$getPackagesHash() => r'fce48451623c5956ed85722377a88757c086b3dc';
 
 ///
@@ -42,6 +43,7 @@ final getPackagesProvider = AutoDisposeFutureProvider<Package>.internal(
 );
 
 typedef GetPackagesRef = AutoDisposeFutureProviderRef<Package>;
+
 String _$getBookingsHash() => r'190970b8ed56ab673daa8636d4e952c6417e7c30';
 
 ///
@@ -60,6 +62,7 @@ final getBookingsProvider = AutoDisposeFutureProvider<List<Booking>>.internal(
 );
 
 typedef GetBookingsRef = AutoDisposeFutureProviderRef<List<Booking>>;
+
 String _$bookingConfirmationHash() =>
     r'29b67220af40b6fcdef14f38aaddf77812ccf667';
 
@@ -80,6 +83,7 @@ final bookingConfirmationProvider = AutoDisposeFutureProvider<Booking>.internal(
 );
 
 typedef BookingConfirmationRef = AutoDisposeFutureProviderRef<Booking>;
+
 String _$doctorByNameHash() => r'2e24310ab951ecbec2f07b69d19b6ad47b2e2479';
 
 /// Copied from Dart SDK
@@ -103,16 +107,32 @@ class _SystemHash {
   }
 }
 
-/// See also [doctorByName].
+///
+/// get doctor details by name
+///
+///
+/// Copied from [doctorByName].
 @ProviderFor(doctorByName)
 const doctorByNameProvider = DoctorByNameFamily();
 
-/// See also [doctorByName].
+///
+/// get doctor details by name
+///
+///
+/// Copied from [doctorByName].
 class DoctorByNameFamily extends Family<Doctor> {
-  /// See also [doctorByName].
+  ///
+  /// get doctor details by name
+  ///
+  ///
+  /// Copied from [doctorByName].
   const DoctorByNameFamily();
 
-  /// See also [doctorByName].
+  ///
+  /// get doctor details by name
+  ///
+  ///
+  /// Copied from [doctorByName].
   DoctorByNameProvider call({
     required String doctorName,
   }) {
@@ -145,9 +165,17 @@ class DoctorByNameFamily extends Family<Doctor> {
   String? get name => r'doctorByNameProvider';
 }
 
-/// See also [doctorByName].
+///
+/// get doctor details by name
+///
+///
+/// Copied from [doctorByName].
 class DoctorByNameProvider extends AutoDisposeProvider<Doctor> {
-  /// See also [doctorByName].
+  ///
+  /// get doctor details by name
+  ///
+  ///
+  /// Copied from [doctorByName].
   DoctorByNameProvider({
     required String doctorName,
   }) : this._internal(

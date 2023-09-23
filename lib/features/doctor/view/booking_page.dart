@@ -1,4 +1,3 @@
-import 'package:docfinder/core/configs/styles/styles.dart';
 import 'package:docfinder/core/core.dart';
 import 'package:docfinder/features/doctor/model/doctor.dart';
 import 'package:docfinder/features/doctor/providers/booking_overview.dart';
@@ -10,7 +9,9 @@ import 'package:docfinder/features/doctor/widget/stats_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+///
 /// book appointment page
+///
 class BookingPage extends StatelessWidget {
   const BookingPage({super.key});
 
@@ -101,7 +102,7 @@ class _MakeAppointMentButton extends ConsumerWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               textStyle: Theme.of(context).textTheme.titleLarge,
-              backgroundColor: Colors.blue,
+              backgroundColor: AppColors.primary,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadiusDirectional.circular(24),
               ),

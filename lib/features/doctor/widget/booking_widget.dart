@@ -143,7 +143,7 @@ class _DaySelectorBox extends StatelessWidget {
           ),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
           decoration: BoxDecoration(
-            color: selected ? Colors.blue : Colors.white,
+            color: selected ? AppColors.primary : Colors.white,
             borderRadius: BorderRadius.circular(56),
             border: Border.all(color: AppColors.grey.withOpacity(.2)),
           ),
@@ -203,7 +203,7 @@ class _TimeSelectorBox extends StatelessWidget {
           ),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
           decoration: BoxDecoration(
-            color: selected ? Colors.blue : Colors.white,
+            color: selected ? AppColors.primary : Colors.white,
             borderRadius: BorderRadius.circular(56),
             border: Border.all(color: AppColors.grey.withOpacity(.2)),
           ),

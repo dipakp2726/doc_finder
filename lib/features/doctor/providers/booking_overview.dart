@@ -1,42 +1,39 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'booking_overview.freezed.dart';
 part 'booking_overview.g.dart';
 
-@freezed
-class BookingState with _$BookingState {
-  const factory BookingState({
-    String? bookingDate,
-    String? bookingTime,
-  }) = _BookingState;
-
-  /// For custom getters and methods to work. Must not have any parameter.
-  // ignore: unused_element
-  const BookingState._();
-}
-
+///
+/// booking date and time proivder
+/// hold currently selected date and time
+///
 @riverpod
 class BookingOverview extends _$BookingOverview {
   @override
-  BookingState build() {
-    return const BookingState();
+  ({String? bookingDate, String? bookingTime}) build() {
+    return (bookingDate: null, bookingTime: null);
   }
 
   void selectDate(String date) {
     if (state.bookingDate == date) return;
-    state = state.copyWith(
+
+    state = (
       bookingDate: date,
-      bookingTime: null,
+      bookingTime: state.bookingTime,
     );
   }
 
   void selectTime(String time) {
     if (state.bookingTime == time) return;
-    state = state.copyWith(bookingTime: time);
+    state = (
+      bookingTime: time,
+      bookingDate: state.bookingDate,
+    );
   }
 }
 
+///
+/// hold currently selected package and duration
+///
 @riverpod
 class PackageOverview extends _$PackageOverview {
   @override

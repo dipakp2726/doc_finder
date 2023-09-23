@@ -1,6 +1,4 @@
-import 'package:docfinder/core/configs/styles/styles.dart';
 import 'package:docfinder/core/core.dart';
-import 'package:docfinder/core/widgets/app_cached_network_image.dart';
 import 'package:docfinder/features/doctor/model/model.dart';
 import 'package:docfinder/features/doctor/providers/doctor_providers.dart';
 import 'package:docfinder/features/doctor/widget/async_value_widget.dart';
@@ -8,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+///
+/// my active bookings
+///
 class MyBookingsPage extends StatelessWidget {
   const MyBookingsPage({super.key});
 
@@ -116,7 +117,9 @@ class _BookingListItem extends ConsumerWidget {
                     child: SizedBox(
                       height: 40,
                       child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                        ),
                         onPressed: () {},
                         child: const Text('Reschedule'),
                       ),

@@ -1,6 +1,4 @@
-import 'package:docfinder/core/configs/configs.dart';
 import 'package:docfinder/core/core.dart';
-import 'package:docfinder/core/widgets/app_bar_leading.dart';
 import 'package:docfinder/features/doctor/model/model.dart';
 import 'package:docfinder/features/doctor/providers/booking_overview.dart';
 import 'package:docfinder/features/doctor/providers/doctor_providers.dart';
@@ -10,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+///
+/// Booking review summary page
+///
 class ReviewSummaryPage extends StatelessWidget {
   const ReviewSummaryPage({super.key});
 
@@ -144,7 +145,7 @@ class _NextButton extends StatelessWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               textStyle: Theme.of(context).textTheme.titleLarge,
-              backgroundColor: Colors.blue,
+              backgroundColor: AppColors.primary,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadiusDirectional.circular(24),
               ),

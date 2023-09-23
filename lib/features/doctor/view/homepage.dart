@@ -1,6 +1,5 @@
-import 'package:docfinder/features/doctor/view/booking_confirmation.dart';
-import 'package:docfinder/features/doctor/view/my_bookings_page.dart';
 import 'package:docfinder/features/doctor/view/doctor_list_page.dart';
+import 'package:docfinder/features/doctor/view/my_bookings_page.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {

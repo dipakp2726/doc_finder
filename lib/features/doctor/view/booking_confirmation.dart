@@ -1,6 +1,4 @@
-import 'package:docfinder/core/configs/styles/styles.dart';
 import 'package:docfinder/core/core.dart';
-import 'package:docfinder/core/widgets/app_bar_leading.dart';
 import 'package:docfinder/features/doctor/model/model.dart';
 import 'package:docfinder/features/doctor/providers/doctor_providers.dart';
 import 'package:docfinder/features/doctor/view/my_bookings_page.dart';
@@ -9,6 +7,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+///
+/// Confirmation page for booking
+///
 class BookingConfirmationPage extends StatelessWidget {
   const BookingConfirmationPage({super.key});
 
@@ -130,7 +131,7 @@ class _Buttons extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   textStyle: Theme.of(context).textTheme.titleLarge,
-                  backgroundColor: Colors.blue,
+                  backgroundColor: AppColors.primary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadiusDirectional.circular(24),
                   ),
@@ -161,6 +162,7 @@ class _Buttons extends StatelessWidget {
 
 class _DetailsWidget extends StatelessWidget {
   const _DetailsWidget(this.booking);
+
   final Booking booking;
 
   @override
@@ -197,6 +199,7 @@ class _DetailsWidget extends StatelessWidget {
 
 class _RowWidget extends StatelessWidget {
   const _RowWidget({required this.icon, required this.value});
+
   final IconData icon;
   final String value;
 

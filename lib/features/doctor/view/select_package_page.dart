@@ -109,7 +109,7 @@ class _NextButton extends ConsumerWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               textStyle: Theme.of(context).textTheme.titleLarge,
-              backgroundColor: Colors.blue,
+              backgroundColor: AppColors.primary,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadiusDirectional.circular(24),
               ),
@@ -146,6 +146,7 @@ class _NextButton extends ConsumerWidget {
 
 class _PackageList extends StatelessWidget {
   const _PackageList({required this.packages});
+
   final List<String> packages;
 
   @override
@@ -165,6 +166,7 @@ class _PackageItem extends ConsumerWidget {
   const _PackageItem({required this.package});
 
   final String package;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedPackage =
@@ -173,6 +175,7 @@ class _PackageItem extends ConsumerWidget {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: RadioListTile<String>(
         value: package,
+        activeColor: AppColors.primary,
         groupValue: selectedPackage,
         onChanged: (value) => ref
             .read(

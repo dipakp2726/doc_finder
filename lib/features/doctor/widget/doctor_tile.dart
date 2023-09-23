@@ -1,6 +1,6 @@
-import 'package:docfinder/core/configs/styles/styles.dart';
 import 'package:docfinder/core/core.dart';
 import 'package:docfinder/features/doctor/providers/doctor_providers.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,7 +14,7 @@ class DoctorTile extends ConsumerWidget {
     final doctor = ref.watch(currentDoctorProvider);
 
     return SizedBox(
-      height: 100,
+      height: 112,
       child: Row(
         children: [
           Hero(
@@ -65,17 +65,21 @@ class DoctorTile extends ConsumerWidget {
                           color: AppColors.primary,
                         ),
                         Flexible(
-                          child: Text(
-                            doctor.location,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyLarge!
-                                .copyWith(color: AppColors.grey),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: AppSpacing.xxs,
+                            ),
+                            child: Text(
+                              doctor.location,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .copyWith(color: AppColors.grey),
+                            ),
                           ),
                         ),
-                        //TODO: update correct icon
                         const Icon(
-                          Icons.location_pin,
+                          CupertinoIcons.book,
                           color: AppColors.primary,
                         ),
                       ],

@@ -6,12 +6,17 @@ part of 'booking_overview.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bookingOverviewHash() => r'33a2ac90be16d15dbc7b737f994d209128cb7fa3';
+String _$bookingOverviewHash() => r'c6ff9dda7f4acb929bc43cbeab534682efae88a6';
 
-/// See also [BookingOverview].
+///
+/// booking date and time proivder
+/// hold currently selected date and time
+///
+///
+/// Copied from [BookingOverview].
 @ProviderFor(BookingOverview)
-final bookingOverviewProvider =
-    AutoDisposeNotifierProvider<BookingOverview, BookingState>.internal(
+final bookingOverviewProvider = AutoDisposeNotifierProvider<BookingOverview,
+    ({String? bookingDate, String? bookingTime})>.internal(
   BookingOverview.new,
   name: r'bookingOverviewProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -21,10 +26,16 @@ final bookingOverviewProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$BookingOverview = AutoDisposeNotifier<BookingState>;
+typedef _$BookingOverview
+    = AutoDisposeNotifier<({String? bookingDate, String? bookingTime})>;
+
 String _$packageOverviewHash() => r'e910c3bd8165e538db26d339c2b722d54b11cde3';
 
-/// See also [PackageOverview].
+///
+/// hold currently selected package and duration
+///
+///
+/// Copied from [PackageOverview].
 @ProviderFor(PackageOverview)
 final packageOverviewProvider = AutoDisposeNotifierProvider<PackageOverview,
     ({String? duration, String? package})>.internal(

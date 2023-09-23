@@ -1,6 +1,7 @@
 import 'package:docfinder/features/doctor/model/model.dart';
 import 'package:docfinder/features/doctor/repository/doctor_repository_impl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 part 'doctor_providers.g.dart';
 
 ///
@@ -31,6 +32,9 @@ FutureOr<List<Booking>> getBookings(GetBookingsRef ref) =>
 FutureOr<Booking> bookingConfirmation(BookingConfirmationRef ref) =>
     ref.watch(doctorRepositoryProvider).getBookingConfirmation();
 
+///
+/// get doctor details by name
+///
 @riverpod
 Doctor doctorByName(DoctorByNameRef ref, {required String doctorName}) {
   final doctor = ref.watch(doctorListProvider).value;

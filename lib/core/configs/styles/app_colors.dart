@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 /// and helper methods
 class AppColors {
   /// App primary color
-  static const Color primary = Colors.blueAccent;
+  static const Color primary = Color.fromRGBO(41, 98, 255, 1);
 
   /// App white color
   static const Color white = Color(0xffffffff);

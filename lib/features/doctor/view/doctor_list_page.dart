@@ -1,4 +1,3 @@
-import 'package:docfinder/core/configs/configs.dart';
 import 'package:docfinder/core/core.dart';
 import 'package:docfinder/features/doctor/providers/doctor_providers.dart';
 import 'package:docfinder/features/doctor/view/booking_page.dart';
@@ -6,13 +5,18 @@ import 'package:docfinder/features/doctor/widget/doctor_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+///
+/// doctor list page
+///
 class DoctorListPage extends StatelessWidget {
   const DoctorListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Available Doctors'),
+      ),
       body: const SafeArea(
         child: Padding(
           padding: EdgeInsets.all(AppSpacing.lg),
@@ -31,13 +35,18 @@ class _DoctorList extends ConsumerWidget {
     final doctors = ref.watch(doctorListProvider);
 
     return doctors.when(
-      data: (data) => ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (context, index) => ProviderScope(
-          overrides: [
-            currentDoctorProvider.overrideWithValue(data[index]),
-          ],
-          child: const _DoctorListItem(),
+      data: (data) => RefreshIndicator(
+        onRefresh: () {
+          return ref.refresh(doctorListProvider.future);
+        },
+        child: ListView.builder(
+          itemCount: data.length,
+          itemBuilder: (context, index) => ProviderScope(
+            overrides: [
+              currentDoctorProvider.overrideWithValue(data[index]),
+            ],
+            child: const _DoctorListItem(),
+          ),
         ),
       ),
       error: (error, stackTrace) {
