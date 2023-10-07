@@ -1,6 +1,7 @@
 import 'package:docfinder/core/core.dart';
 import 'package:docfinder/features/doctor/providers/doctor_providers.dart';
 import 'package:docfinder/features/doctor/view/booking_page.dart';
+import 'package:docfinder/features/doctor/widget/async_value_widget.dart';
 import 'package:docfinder/features/doctor/widget/doctor_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -32,27 +33,68 @@ class _DoctorList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final doctors = ref.watch(doctorListProvider);
+    final doctors = ref.watch(filteredDoctorsProvider);
 
-    return doctors.when(
-      data: (data) => RefreshIndicator(
-        onRefresh: () {
-          return ref.refresh(doctorListProvider.future);
-        },
-        child: ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (context, index) => ProviderScope(
-            overrides: [
-              currentDoctorProvider.overrideWithValue(data[index]),
-            ],
-            child: const _DoctorListItem(),
+    return Column(
+      children: [
+        FilterWidget(),
+        doctors.when(
+          data: (data) => Expanded(
+            child: RefreshIndicator(
+              onRefresh: () {
+                return ref.refresh(doctorListProvider.future);
+              },
+              child: ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) => ProviderScope(
+                  overrides: [
+                    currentDoctorProvider.overrideWithValue(data[index]),
+                  ],
+                  child: const _DoctorListItem(),
+                ),
+              ),
+            ),
           ),
+          error: (error, stackTrace) {
+            return const ErrorView();
+          },
+          loading: AppLoader.new,
         ),
-      ),
-      error: (error, stackTrace) {
-        return const ErrorView();
+      ],
+    );
+  }
+}
+
+class FilterWidget extends ConsumerWidget {
+  const FilterWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final filters = ref.watch(getSpecialitiesProvider);
+
+    final currentFilter = ref.watch(currentSpecialityProvider);
+
+    return AsyncValueWidget(
+      value: filters,
+      data: (data) {
+        return DropdownButton<String>(
+          value: currentFilter,
+          items: ['All', ...data]
+              .map(
+                (e) => DropdownMenuItem<String>(
+                  value: e == 'All' ? null : e,
+                  child: Text(e),
+                ),
+              )
+              .toList(),
+          onChanged: (data) {
+            ref.read(currentSpecialityProvider.notifier).state =
+                data == 'All' ? null : data;
+          },
+        );
       },
-      loading: AppLoader.new,
     );
   }
 }

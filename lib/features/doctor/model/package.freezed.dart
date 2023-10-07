@@ -27,7 +27,6 @@ mixin _$Package {
   List<String> get package => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $PackageCopyWith<Package> get copyWith => throw _privateConstructorUsedError;
 }
@@ -36,7 +35,6 @@ mixin _$Package {
 abstract class $PackageCopyWith<$Res> {
   factory $PackageCopyWith(Package value, $Res Function(Package) then) =
       _$PackageCopyWithImpl<$Res, Package>;
-
   @useResult
   $Res call({List<String> duration, List<String> package});
 }
@@ -48,7 +46,6 @@ class _$PackageCopyWithImpl<$Res, $Val extends Package>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -76,7 +73,6 @@ abstract class _$$_PackageCopyWith<$Res> implements $PackageCopyWith<$Res> {
   factory _$$_PackageCopyWith(
           _$_Package value, $Res Function(_$_Package) then) =
       __$$_PackageCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({List<String> duration, List<String> package});
@@ -182,7 +178,6 @@ abstract class _Package extends Package {
   const factory _Package(
       {required final List<String> duration,
       required final List<String> package}) = _$_Package;
-
   const _Package._() : super._();
 
   factory _Package.fromJson(Map<String, dynamic> json) = _$_Package.fromJson;
@@ -191,12 +186,10 @@ abstract class _Package extends Package {
 
   /// available duration
   List<String> get duration;
-
   @override
 
   /// available packages
   List<String> get package;
-
   @override
   @JsonKey(ignore: true)
   _$$_PackageCopyWith<_$_Package> get copyWith =>

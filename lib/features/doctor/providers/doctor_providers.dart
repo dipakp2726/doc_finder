@@ -1,5 +1,6 @@
 import 'package:docfinder/features/doctor/model/model.dart';
 import 'package:docfinder/features/doctor/repository/doctor_repository_impl.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'doctor_providers.g.dart';
@@ -10,6 +11,34 @@ part 'doctor_providers.g.dart';
 @Riverpod(keepAlive: true)
 FutureOr<List<Doctor>> doctorList(DoctorListRef ref) =>
     ref.watch(doctorRepositoryProvider).getDoctorDetails();
+
+@riverpod
+Future<List<String>> getSpecialities(GetSpecialitiesRef ref) async {
+  final doctors = await ref.watch(doctorListProvider.future);
+
+  return doctors.map((e) => e.speciality).toList();
+  // doctors.
+}
+
+final currentSpecialityProvider = StateProvider<String?>((ref) {
+  return null;
+});
+
+@Riverpod(keepAlive: true)
+class FilteredDoctors extends _$FilteredDoctors {
+  @override
+  Future<List<Doctor>> build() async {
+    final doctors = await ref.watch(doctorListProvider.future);
+
+    final speciality = ref.watch(currentSpecialityProvider);
+
+    if (speciality == null) return doctors;
+
+    return doctors
+        .where((element) => element.speciality == speciality)
+        .toList();
+  }
+}
 
 ///
 /// provides available packages

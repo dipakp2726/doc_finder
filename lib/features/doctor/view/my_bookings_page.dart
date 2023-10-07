@@ -1,6 +1,7 @@
 import 'package:docfinder/core/core.dart';
 import 'package:docfinder/features/doctor/model/model.dart';
 import 'package:docfinder/features/doctor/providers/doctor_providers.dart';
+import 'package:docfinder/features/doctor/view/view.dart';
 import 'package:docfinder/features/doctor/widget/async_value_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -120,7 +121,12 @@ class _BookingListItem extends ConsumerWidget {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primary,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+
+                          Navigator.of(context).push(BookingPage.route(doctor));
+
+
+                        },
                         child: const Text('Reschedule'),
                       ),
                     ),

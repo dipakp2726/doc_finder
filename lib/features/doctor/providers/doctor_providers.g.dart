@@ -24,7 +24,22 @@ final doctorListProvider = FutureProvider<List<Doctor>>.internal(
 );
 
 typedef DoctorListRef = FutureProviderRef<List<Doctor>>;
+String _$getSpecialitiesHash() => r'f82620f744bfc56140fda6a0ace7e857cad42d90';
 
+/// See also [getSpecialities].
+@ProviderFor(getSpecialities)
+final getSpecialitiesProvider =
+    AutoDisposeFutureProvider<List<String>>.internal(
+  getSpecialities,
+  name: r'getSpecialitiesProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getSpecialitiesHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetSpecialitiesRef = AutoDisposeFutureProviderRef<List<String>>;
 String _$getPackagesHash() => r'fce48451623c5956ed85722377a88757c086b3dc';
 
 ///
@@ -43,7 +58,6 @@ final getPackagesProvider = AutoDisposeFutureProvider<Package>.internal(
 );
 
 typedef GetPackagesRef = AutoDisposeFutureProviderRef<Package>;
-
 String _$getBookingsHash() => r'190970b8ed56ab673daa8636d4e952c6417e7c30';
 
 ///
@@ -62,7 +76,6 @@ final getBookingsProvider = AutoDisposeFutureProvider<List<Booking>>.internal(
 );
 
 typedef GetBookingsRef = AutoDisposeFutureProviderRef<List<Booking>>;
-
 String _$bookingConfirmationHash() =>
     r'29b67220af40b6fcdef14f38aaddf77812ccf667';
 
@@ -83,7 +96,6 @@ final bookingConfirmationProvider = AutoDisposeFutureProvider<Booking>.internal(
 );
 
 typedef BookingConfirmationRef = AutoDisposeFutureProviderRef<Booking>;
-
 String _$doctorByNameHash() => r'2e24310ab951ecbec2f07b69d19b6ad47b2e2479';
 
 /// Copied from Dart SDK
@@ -277,5 +289,21 @@ final currentDoctorProvider = AutoDisposeProvider<Doctor>.internal(
 );
 
 typedef CurrentDoctorRef = AutoDisposeProviderRef<Doctor>;
+String _$filteredDoctorsHash() => r'02487b230ab033f6f751d30c275fc88c12c47243';
+
+/// See also [FilteredDoctors].
+@ProviderFor(FilteredDoctors)
+final filteredDoctorsProvider =
+    AsyncNotifierProvider<FilteredDoctors, List<Doctor>>.internal(
+  FilteredDoctors.new,
+  name: r'filteredDoctorsProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$filteredDoctorsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$FilteredDoctors = AsyncNotifier<List<Doctor>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -28,7 +28,6 @@ final bookingOverviewProvider = AutoDisposeNotifierProvider<BookingOverview,
 
 typedef _$BookingOverview
     = AutoDisposeNotifier<({String? bookingDate, String? bookingTime})>;
-
 String _$packageOverviewHash() => r'e910c3bd8165e538db26d339c2b722d54b11cde3';
 
 ///

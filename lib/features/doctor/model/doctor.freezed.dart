@@ -49,7 +49,6 @@ mixin _$Doctor {
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $DoctorCopyWith<Doctor> get copyWith => throw _privateConstructorUsedError;
 }
@@ -58,7 +57,6 @@ mixin _$Doctor {
 abstract class $DoctorCopyWith<$Res> {
   factory $DoctorCopyWith(Doctor value, $Res Function(Doctor) then) =
       _$DoctorCopyWithImpl<$Res, Doctor>;
-
   @useResult
   $Res call(
       {String doctorName,
@@ -79,7 +77,6 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -141,7 +138,6 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
 abstract class _$$_DoctorCopyWith<$Res> implements $DoctorCopyWith<$Res> {
   factory _$$_DoctorCopyWith(_$_Doctor value, $Res Function(_$_Doctor) then) =
       __$$_DoctorCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -346,7 +342,6 @@ abstract class _Doctor extends Doctor {
       required final double rating,
       required final int numberOfReviews,
       required final Map<String, List<String>> availability}) = _$_Doctor;
-
   const _Doctor._() : super._();
 
   factory _Doctor.fromJson(Map<String, dynamic> json) = _$_Doctor.fromJson;
@@ -355,47 +350,38 @@ abstract class _Doctor extends Doctor {
 
   /// name
   String get doctorName;
-
   @override
 
   /// image
   String get image;
-
   @override
 
   /// location
   String get location;
-
   @override
 
   /// speciality
   String get speciality;
-
   @override
 
   /// number of patients serverd
   int get patientsServed;
-
   @override
 
   /// years of
   int get yearsOfExperience;
-
   @override
 
   /// rating
   double get rating;
-
   @override
 
   /// number of reviews
   int get numberOfReviews;
-
   @override
 
   /// date and time of avaialibity
   Map<String, List<String>> get availability;
-
   @override
   @JsonKey(ignore: true)
   _$$_DoctorCopyWith<_$_Doctor> get copyWith =>

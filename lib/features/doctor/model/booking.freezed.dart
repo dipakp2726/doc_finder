@@ -21,19 +21,13 @@ Booking _$BookingFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Booking {
   String get doctorName => throw _privateConstructorUsedError;
-
   String get location => throw _privateConstructorUsedError;
-
   String get appointmentDate => throw _privateConstructorUsedError;
-
   String get appointmentTime => throw _privateConstructorUsedError;
-
   String? get appointmentPackage => throw _privateConstructorUsedError;
-
   String? get bookingId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $BookingCopyWith<Booking> get copyWith => throw _privateConstructorUsedError;
 }
@@ -42,7 +36,6 @@ mixin _$Booking {
 abstract class $BookingCopyWith<$Res> {
   factory $BookingCopyWith(Booking value, $Res Function(Booking) then) =
       _$BookingCopyWithImpl<$Res, Booking>;
-
   @useResult
   $Res call(
       {String doctorName,
@@ -60,7 +53,6 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -108,7 +100,6 @@ abstract class _$$_BookingCopyWith<$Res> implements $BookingCopyWith<$Res> {
   factory _$$_BookingCopyWith(
           _$_Booking value, $Res Function(_$_Booking) then) =
       __$$_BookingCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -245,29 +236,22 @@ abstract class _Booking extends Booking {
       required final String appointmentTime,
       final String? appointmentPackage,
       final String? bookingId}) = _$_Booking;
-
   const _Booking._() : super._();
 
   factory _Booking.fromJson(Map<String, dynamic> json) = _$_Booking.fromJson;
 
   @override
   String get doctorName;
-
   @override
   String get location;
-
   @override
   String get appointmentDate;
-
   @override
   String get appointmentTime;
-
   @override
   String? get appointmentPackage;
-
   @override
   String? get bookingId;
-
   @override
   @JsonKey(ignore: true)
   _$$_BookingCopyWith<_$_Booking> get copyWith =>
